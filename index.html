@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>swiper</title>
+	<link rel="stylesheet" href="./reset.css">
+	<link rel="stylesheet" href="./swiper-4.1.6.min.css">
+	<style type="text/css">
+		html{
+			font-size: 100px;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+
+		.swiper-container {
+		    width: 6.4rem;
+		    height: 3.12rem;
+		} 
+		.swiper-slide{
+			width: 6.4rem;
+		    height: 3.12rem;
+		}
+		.swiper-slide img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<section id="main">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img data-src="./banner01.jpg" class="swiper-lazy" alt="">
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img data-src="./banner02.jpg" class="swiper-lazy" alt="">
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img data-src="./banner03.jpg" class="swiper-lazy" alt="">
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img data-src="./banner04.jpg" class="swiper-lazy" alt="">
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img data-src="./banner05.jpg" class="swiper-lazy" alt="">
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+
+	<script charset="UTF-8" type="text/javascript" src="./swiper-4.1.6.min.js"></script>
+
+	<script type="text/javascript" charset="UTF-8">
+		~function(){
+			var desW=640,
+				winW=document.documentElement.clientWidth,
+				oMain=document.getElementById("main");
+			if(winW>desW){
+				oMain.style.width=desW+"px";
+				oMain.style.margin="0 auto";
+				return;
+			}
+			document.documentElement.style.fontSize=winW/desW*100+"px";
+		}();
+	</script>
+
+	<script type="text/javascript">
+		//初始化swiper实现区域的滑动 new Swiper([container selector],settings);
+		var swiper=new Swiper(".swiper-container",{
+			direction:"vertical",//纵向轮播
+			loop:true,//无缝滚动
+			autoplay:{
+				delay:1000,
+				disableOnInteraction:false
+			},
+		  	pagination: {
+		      el: '.swiper-pagination',
+		      type:"progressbar"
+		    },
+		    lazy:{
+		    	loadPrevNext:true
+		    },
+		    effect : 'cube',
+		    cubeEffect: {
+		    	slideShadows: true,
+		    	shadow: true,
+		    	shadowOffset: 100,
+		   	 shadowScale: 0.6
+		 	},
+		});
+	</script>
+</body>
+</html>
